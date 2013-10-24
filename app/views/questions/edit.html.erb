@@ -1,0 +1,21 @@
+<center><h1>OracleWeb</h1></center>
+
+<%= form_for :question, :url => question_path(@question), :method => :patch do |f| %>
+   <p>
+      <%= f.text_field :title, :size => 160 %>
+   </p>
+
+   <p>
+      <%= f.text_area :text, :size => '115x20' %>
+   </p>
+
+   <p>
+      <%= f.submit "editar!", :disable_with => 'editando...' %>
+   </p>
+<% end %>
+
+<hr>
+
+<p>
+   &#x2192; <%= link_to "eu quero voltar!", questions_path %>
+</p>

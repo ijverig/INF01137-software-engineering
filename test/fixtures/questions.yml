@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  text: MyString
+  date: 2013-10-17
+  likes: 
+  hidden: false
+
+two:
+  title: MyString
+  text: MyString
+  date: 2013-10-17
+  likes: 
+  hidden: false

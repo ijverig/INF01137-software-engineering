@@ -1,6 +1,6 @@
-<center><h1>OracleWeb</h1></center>
-
-<h2><strong><%= @question.title %></strong></h2>
+<h2>
+   <strong><%= @question.title %></strong>
+</h2>
  
 <p>
   <%= @question.text %>
@@ -8,14 +8,30 @@
 
 <hr>
 
-<p>
-   &#x2192; <%= link_to "editar!", edit_question_path(@question) %>
-</p>
+<table>
+  <% @question.answers.each do |a| %>
+    <tr>
+      <td><%= simple_format a.text %></td>
+   </tr>
+  <% end %>
+</table>
+
+<hr>
+
+<%= form_for [@question, @question.answers.build] do |f| %>
+   <p>
+      <%= f.text_area :text, :value => 'escreva sua resposta aqui...', :size => '115x20' %>
+   </p>
+
+   <p>
+      <%= f.submit "responder!", :disable_with => 'respondendo...' %>
+   </p>
+<% end %>
+
+<hr>
 
 <p>
-   &#x2192; <%= link_to "apagar!", question_path(@question), :method => :delete, :data => {:confirm => "Essa pergunta será removida do sistema! Prosseguir?"} %>
-</p>
-
-<p>
-   &#x2192; <%= link_to "eu quero voltar!", questions_path %>
+   <%= link_to "editar", edit_question_path(@question) %> |
+   <%= link_to "apagar", question_path(@question), :method => :delete, :data => {:confirm => "Essa pergunta será removida do sistema! Continuar?"} %> |
+   <%= link_to "voltar", questions_path %>
 </p>

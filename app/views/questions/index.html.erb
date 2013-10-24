@@ -1,8 +1,7 @@
-<center><h1>OracleWeb</h1></center>
-
 <%= form_for :question, :url => search_questions_path do |f| %>
    <p>
       <%= f.text_field :title, :value => 'pesquisa', :size => 50 %>
+   
       <%= f.submit "vai!", :disable_with => 'indo...' %>
    </p>
 <% end %>

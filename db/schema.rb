@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131017031630) do
+ActiveRecord::Schema.define(version: 20131024154039) do
+
+  create_table "answers", force: true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "date"
+    t.integer  "likes"
+    t.boolean  "hidden"
+    t.integer  "question_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
 
   create_table "questions", force: true do |t|
     t.string   "title"

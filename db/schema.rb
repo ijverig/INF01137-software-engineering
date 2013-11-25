@@ -11,12 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131024154039) do
+ActiveRecord::Schema.define(version: 20131125232605) do
 
   create_table "answers", force: true do |t|
-    t.string   "title"
     t.text     "text"
-    t.datetime "date"
     t.integer  "likes"
     t.boolean  "hidden"
     t.integer  "question_id"
@@ -28,9 +26,7 @@ ActiveRecord::Schema.define(version: 20131024154039) do
 
   create_table "questions", force: true do |t|
     t.string   "title"
-    t.string   "text"
-    t.date     "date"
-    t.integer  "likes"
+    t.text     "text",       limit: 255
     t.boolean  "hidden"
     t.datetime "created_at"
     t.datetime "updated_at"

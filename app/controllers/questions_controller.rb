@@ -9,7 +9,6 @@ class QuestionsController < ApplicationController
   
   def search
     @questions = Question.where("title LIKE ?", "%#{params[:question].permit(:title)[:title]}%")
-    # @questions = Question.where("title LIKE ?", "%#{params[:title]}%")
     
     render 'index'
   end

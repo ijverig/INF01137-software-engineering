@@ -17,7 +17,10 @@ class QuestionsController < ApplicationController
   end
   
   def create
-    redirect_to Question.create(params[:question].permit(:title, :text).merge(:date => Time.now, :likes => 0, :hidden => false))
+    logged_user = logged_user()
+    logged_user.add_question_points
+
+    redirect_to Question.create(params[:question].permit(:title, :text).merge(:user => logged_user, :hidden => false))
   end
 
   def edit
